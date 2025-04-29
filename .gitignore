@@ -1,19 +1,38 @@
-# Ignore artifacts, logs, and output files
-Artifacts/
+# -----------------------------------------
+# Project Specific: Artifacts, Logs, Data
+# -----------------------------------------
+
+# Ignore logs
 Logs/
+
+# Allow Artifacts folder and include only essential pkl files
+!Artifacts/
+!Artifacts/best_classifier.pkl
+!Artifacts/data_processing_pipeline.pkl
+!Artifacts/label_encoder.pkl
+Artifacts/**/*
+!Artifacts/*.pkl
+
+# Ignore all pkl files globally except those allowed above
 *.pkl
 
-# Ignore data folders
+# Ignore specific Data subfolders
 Data/raw/
 Data/processed/
 Data/output/
 
-# Ignore Python cache and compiled files
+# -----------------------------------------
+# Python Specific: Cache, Compiled Files
+# -----------------------------------------
+
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Ignore virtual environments
+# -----------------------------------------
+# Virtual Environments
+# -----------------------------------------
+
 .env
 .venv
 env/
@@ -22,17 +41,26 @@ ENV/
 env.bak/
 venv.bak/
 
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints
+# -----------------------------------------
+# Jupyter Notebook Checkpoints
+# -----------------------------------------
 
-# Ignore PyTest, coverage, and test-related cache
+.ipynb_checkpoints/
+
+# -----------------------------------------
+# Testing Related
+# -----------------------------------------
+
 .pytest_cache/
 .tox/
 .coverage
 coverage.xml
 nosetests.xml
 
-# Ignore Docker, Pip, and Poetry lock files
+# -----------------------------------------
+# Docker, Pip, Poetry Lock Files
+# -----------------------------------------
+
 docker-compose.override.yml
 pip-log.txt
 pip-delete-this-directory.txt
@@ -41,11 +69,17 @@ pdm.lock
 .pdm.toml
 .pdm-build/
 
-# Ignore PyCharm and VSCode settings
+# -----------------------------------------
+# IDE Specific: PyCharm, VSCode
+# -----------------------------------------
+
 .idea/
 .vscode/
 
-# Ignore temporary or personal files
+# -----------------------------------------
+# OS and Miscellaneous
+# -----------------------------------------
+
 .DS_Store
 Thumbs.db
 *.log
