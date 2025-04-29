@@ -1,28 +1,26 @@
 # -----------------------------------------
-# Project Specific: Artifacts, Logs, Data
+# Project-Specific: Artifacts, Logs, Data
 # -----------------------------------------
 
-# Ignore logs
-Logs/
-
-# Allow Artifacts folder and include only essential pkl files
+# Allow Artifacts folder and include only required .pkl model artifacts
 !Artifacts/
+Artifacts/**
 !Artifacts/best_classifier.pkl
 !Artifacts/data_processing_pipeline.pkl
 !Artifacts/label_encoder.pkl
-Artifacts/**/*
-!Artifacts/*.pkl
 
-# Ignore all pkl files globally except those allowed above
+# Ignore Logs folder
+Logs/
+
+# Ignore all other .pkl files globally
 *.pkl
 
-# Ignore specific Data subfolders
-Data/raw/
-Data/processed/
-Data/output/
+# Ignore entire Data folder, including test batches
+Data/
+Data/**
 
 # -----------------------------------------
-# Python Specific: Cache, Compiled Files
+# Python Cache / Compiled Files
 # -----------------------------------------
 
 __pycache__/
@@ -42,13 +40,13 @@ env.bak/
 venv.bak/
 
 # -----------------------------------------
-# Jupyter Notebook Checkpoints
+# Jupyter Checkpoints
 # -----------------------------------------
 
 .ipynb_checkpoints/
 
 # -----------------------------------------
-# Testing Related
+# Test/Build Tools
 # -----------------------------------------
 
 .pytest_cache/
@@ -58,7 +56,7 @@ coverage.xml
 nosetests.xml
 
 # -----------------------------------------
-# Docker, Pip, Poetry Lock Files
+# Packaging / Pip / Poetry / Docker
 # -----------------------------------------
 
 docker-compose.override.yml
@@ -70,16 +68,11 @@ pdm.lock
 .pdm-build/
 
 # -----------------------------------------
-# IDE Specific: PyCharm, VSCode
+# IDE / Editor / OS Junk
 # -----------------------------------------
 
 .idea/
 .vscode/
-
-# -----------------------------------------
-# OS and Miscellaneous
-# -----------------------------------------
-
 .DS_Store
 Thumbs.db
 *.log
