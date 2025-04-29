@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-risk-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan-risk-app
+  template:
+    metadata:
+      labels:
+        app: loan-risk-app
+    spec:
+      containers:
+      - name: loan-risk-app
+        image: basudevp/loan-risk-app:latest
+        ports:
+        - containerPort: 8501
+        env:
+        - name: ARTIFACTS_DIR
+          value: "Artifacts"
+        - name: DATA_DIR
+          value: "Data"
+        - name: LOGS_DIR
+          value: "Logs"
